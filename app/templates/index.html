@@ -58,7 +58,7 @@
     <!-- upload input -->
     <div class="p-6">
         <div class="grid grid-cols-5 gap-4">
-            <div class="col-span-3 bg-base-200 rounded-xl p-6 flex flex-col items-center justify-center gap-4">
+            <div id="upload-cell" class="col-span-3 bg-base-200 rounded-xl p-6 flex flex-col items-center justify-center gap-4">
                 <div class="flex justify-center items-center h-full">
                     <div class="border-2 border-dotted border-base-300 rounded-xl p-10 w-full max-w-xl text-center">
                         <div class="w-20 h-20 rounded-full bg-gradient-to-r from-[#7564f1] to-[#3dbcfd] flex items-center justify-center mx-auto">
@@ -71,7 +71,7 @@
                         <label class="mt-6 inline-flex items-center gap-2 px-5 py-2 rounded-lg text-black font-medium cursor-pointer bg-gradient-to-r from-[#7564f1] to-[#3dbcfd] hover:opacity-90 transition">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-video-icon lucide-video h-5 w-5"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
                             Choose file
-                            <input type="file" accept="video/mp4" class="hidden" />
+                            <input id="file-input" type="file" accept="video/mp4" class="hidden" />
                         </label>
 
                         <p class="text-xs text-base-content/50 mt-2">Supports MP4 (Max 500MB)</p>
@@ -151,75 +151,24 @@
 
                 <!-- Readonly Input -->
                 <input type="text" id="preview-input" readonly placeholder="" value="Subtitle Preview" class="input input-bordered w-full bg-base-100 text-base-content cursor-not-allowed !outline-none"/>
+
+                <form id="subtitle-form" method="POST">
+                    <button type="submit" class="btn btn-soft btn-bordered w-full">Generate Subtitles</button>
+                </form>
+
+                <button id="download-btn" class="btn btn-soft btn-bordered btn-disabled w-full mt-2">Download Subtitled Video</button>
             </div>
         </div>
     </div>
 
-<!-- Subtitle text preview -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const previewInput = document.getElementById('preview-input');
-    const fontSelect = document.getElementById('font-family-select');
-    const fontSlider = document.getElementById('font-size-slider');
-    const fontValue = document.getElementById('font-size-value');
-    const colourButtons = document.querySelectorAll('#text-colour-buttons button');
-    const bgSelect = document.getElementById('background-select');
-
-    // Font family
-    fontSelect.addEventListener('change', () => {
-        previewInput.style.fontFamily = fontSelect.value;
-    });
-
-    // Font size
-    fontSlider.addEventListener('input', () => {
-        fontValue.textContent = fontSlider.value;
-        previewInput.style.fontSize = fontSlider.value + 'px';
-    });
-
-    // Text colour buttons
-    colourButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            colourButtons.forEach(b => b.classList.remove('border-primary'));
-            btn.classList.add('border-primary');
-
-            const computedColor = window.getComputedStyle(btn).backgroundColor;
-            previewInput.style.color = computedColor;
-            previewInput.value = "Subtitle Preview";
-        });
-    });
-
-    // Background
-    bgSelect.addEventListener('change', () => {
-        previewInput.style.backgroundColor = bgSelect.value === 'Transparent' ? 'transparent' : bgSelect.value.toLowerCase();
-    });
-});
-</script>
-
-<!-- Position Button Select Script -->
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('#position-buttons button');
-    buttons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            buttons.forEach(b => b.classList.remove('border-primary'));
-            btn.classList.add('border-primary');
-        });
-    });
-});
-</script>
-
-<!-- text colour button select -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('#text-colour-buttons button');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('border-2', 'border-primary')); 
-        btn.classList.add('border-2', 'border-primary');
-      });
-    });
-  });
-</script>
+    <!-- Video upload preview -->
+    <script src="{{ url_for('static', filename='js/videoPreview.js') }}"></script>
+    <!-- Subtitle text preview -->
+    <script src="{{ url_for('static', filename='js/subtitlePreview.js') }}"></script>
+    <!-- Position Button Select Script -->
+    <script src="{{ url_for('static', filename='js/positionSelect.js') }}"></script>
+    <!-- text colour button select -->
+    <script src="{{ url_for('static', filename='js/textColour.js') }}"></script>
 
 </body>
 </html>
