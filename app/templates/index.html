@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+    <title>Captify</title>
+</head>
+<body>
+    
+    <!-- navbar -->
+    <div class="navbar bg-base-100 shadow-sm">
+        <div class="flex-1 ml-2">
+            <a href="/" class="flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" 
+                    class="h-10 w-10">
+                    <defs>
+                        <linearGradient id="captifyGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#7564f1" />
+                            <stop offset="100%" stop-color="#3dbcfd" />
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#captifyGradient)" 
+                        d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/>
+                    <rect x="2" y="6" width="14" height="12" rx="2" fill="url(#captifyGradient)"/>
+                </svg>
+                <span class="bg-gradient-to-r from-[#7564f1] to-[#3dbcfd] bg-clip-text text-transparent text-2xl font-bold">
+                    Captify
+                </span>
+            </a>
+        </div>
+
+        <div class="flex-none mr-2">
+            <label class="swap swap-rotate">
+                <input type="checkbox" class="theme-controller" value="light" />
+                <!-- sun icon -->
+                <svg
+                    class="swap-off h-10 w-10 fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                    d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+                </svg>
+                <!-- moon icon -->
+                <svg
+                    class="swap-on h-10 w-10 fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24">
+                    <path
+                    d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+                </svg>
+            </label>
+        </div>
+    </div>
+
+    <!-- upload input -->
+    <div class="p-6">
+        <div class="grid grid-cols-5 gap-4">
+            <div class="col-span-3 bg-base-200 rounded-xl p-6 flex flex-col items-center justify-center gap-4">
+                <div class="flex justify-center items-center h-full">
+                    <div class="border-2 border-dotted border-base-300 rounded-xl p-10 w-full max-w-xl text-center">
+                        <div class="w-20 h-20 rounded-full bg-gradient-to-r from-[#7564f1] to-[#3dbcfd] flex items-center justify-center mx-auto">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cloud-upload-icon lucide-cloud-upload h-12 w-12 text-black"><path d="M12 13v8"/><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"/><path d="m8 17 4-4 4 4"/></svg>
+                        </div>
+
+                        <h2 class="text-2xl font-semibold mt-4">Upload your file</h2>
+                        <p class="text-sm text-base-content/70 mt-1">Drag &amp; drop your MP4 file or click to browse</p>
+
+                        <label class="mt-6 inline-flex items-center gap-2 px-5 py-2 rounded-lg text-black font-medium cursor-pointer bg-gradient-to-r from-[#7564f1] to-[#3dbcfd] hover:opacity-90 transition">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-video-icon lucide-video h-5 w-5"><path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"/><rect x="2" y="6" width="14" height="12" rx="2"/></svg>
+                            Choose file
+                            <input type="file" accept="video/mp4" class="hidden" />
+                        </label>
+
+                        <p class="text-xs text-base-content/50 mt-2">Supports MP4 (Max 500MB)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-span-2 bg-base-200 rounded-xl p-4 flex flex-col gap-4">
+                <!-- Title -->
+                <div class="flex items-center gap-2 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-type-icon lucide-type h-5 w-5 text-primary"><path d="M12 4v16"/><path d="M4 7V5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2"/><path d="M9 20h6"/></svg>
+                    <h2 class="text-lg font-semibold">Subtitle Style</h2>
+                </div>
+
+                <!-- Font Family -->
+                <label class="text-sm font-medium mb-1">Font Family</label>
+                <select id="font-family-select" class="select select-bordered w-full mb-3 !outline-none">
+                    <option>Arial</option>
+                    <option>Roboto</option>
+                    <option>Times New Roman</option>
+                    <option>Courier New</option>
+                    <option>Montserrat</option>
+                </select>
+
+                <!-- Font Size -->
+                <div class="flex items-center gap-2 mb-1">
+                    <label class="text-sm font-medium">Font Size</label>
+                    <span class="text-sm opacity-70" id="font-size-value">16px</span>
+                </div>
+                <input type="range" id="font-size-slider" min="10" max="40" value="16" class="range range-primary w-full mb-4" oninput="document.getElementById('font-size-value').innerText = this.value + 'px'">
+
+                <!-- Text Colour -->
+                <label class="text-sm font-medium mb-2">Text Colour</label>
+                <div id="text-colour-buttons" class="grid grid-cols-3 gap-2 mb-4">
+                    <button data-color="black" class="w-full h-8 rounded flex items-center justify-center text-xs font-medium bg-black text-white cursor-pointer">Black</button>
+                    <button data-color="white" class="w-full h-8 rounded flex items-center justify-center text-xs font-medium bg-white text-black cursor-pointer">White</button>
+                    <button data-color="red" class="w-full h-8 rounded flex items-center justify-center text-xs font-medium bg-red-500 text-white cursor-pointer">Red</button>
+                    <button data-color="yellow" class="w-full h-8 rounded flex items-center justify-center text-xs font-medium bg-yellow-400 text-black cursor-pointer">Yellow</button>
+                    <button data-color="green" class="w-full h-8 rounded flex items-center justify-center text-xs font-medium bg-green-500 text-white cursor-pointer">Green</button>
+                    <button data-color="blue" class="w-full h-8 rounded flex items-center justify-center text-xs font-medium bg-blue-500 text-white cursor-pointer">Blue</button>
+                </div>
+
+                <!-- Background -->
+                <label class="text-sm font-medium mb-1">Background</label>
+                <select id="background-select" class="select select-bordered w-full !outline-none">
+                    <option>Transparent</option>
+                    <option>Black</option>
+                    <option>White</option>
+                    <option>Custom Colour</option>
+                </select>
+            </div>
+
+            <div class="col-span-2 col-start-4 bg-base-200 rounded-xl p-4 flex flex-col gap-2">
+                <!-- Title -->
+                <div class="flex items-center gap-2 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin h-5 w-5 text-primary">
+                        <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <h2 class="text-lg font-semibold">Position</h2>
+                </div>
+
+                <!-- Position Buttons -->
+                <div id="position-buttons" class="flex flex-col gap-2 items-stretch">
+                    <button class="btn btn-soft btn-bordered justify-start">Top</button>
+                    <button class="btn btn-soft btn-bordered justify-start">Center</button>
+                    <button class="btn btn-soft btn-bordered justify-start">Bottom</button>
+                </div>
+            </div>
+
+            <div class="col-span-2 col-start-4 bg-base-200 rounded-xl p-4 flex flex-col gap-2 h-auto">
+                <!-- Title -->
+                <div class="flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-palette-icon lucide-palette h-5 w-5 text-primary"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></svg>
+                    <h2 class="text-lg font-semibold">Preview</h2>
+                </div>
+
+                <!-- Readonly Input -->
+                <input type="text" id="preview-input" readonly placeholder="" value="Subtitle Preview" class="input input-bordered w-full bg-base-100 text-base-content cursor-not-allowed !outline-none"/>
+            </div>
+        </div>
+    </div>
+
+<!-- Subtitle text preview -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const previewInput = document.getElementById('preview-input');
+    const fontSelect = document.getElementById('font-family-select');
+    const fontSlider = document.getElementById('font-size-slider');
+    const fontValue = document.getElementById('font-size-value');
+    const colourButtons = document.querySelectorAll('#text-colour-buttons button');
+    const bgSelect = document.getElementById('background-select');
+
+    // Font family
+    fontSelect.addEventListener('change', () => {
+        previewInput.style.fontFamily = fontSelect.value;
+    });
+
+    // Font size
+    fontSlider.addEventListener('input', () => {
+        fontValue.textContent = fontSlider.value;
+        previewInput.style.fontSize = fontSlider.value + 'px';
+    });
+
+    // Text colour buttons
+    colourButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            colourButtons.forEach(b => b.classList.remove('border-primary'));
+            btn.classList.add('border-primary');
+
+            const computedColor = window.getComputedStyle(btn).backgroundColor;
+            previewInput.style.color = computedColor;
+            previewInput.value = "Subtitle Preview";
+        });
+    });
+
+    // Background
+    bgSelect.addEventListener('change', () => {
+        previewInput.style.backgroundColor = bgSelect.value === 'Transparent' ? 'transparent' : bgSelect.value.toLowerCase();
+    });
+});
+</script>
+
+<!-- Position Button Select Script -->
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('#position-buttons button');
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            buttons.forEach(b => b.classList.remove('border-primary'));
+            btn.classList.add('border-primary');
+        });
+    });
+});
+</script>
+
+<!-- text colour button select -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('#text-colour-buttons button');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('border-2', 'border-primary')); 
+        btn.classList.add('border-2', 'border-primary');
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
